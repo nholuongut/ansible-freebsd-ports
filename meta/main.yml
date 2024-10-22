@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  namespace: nholuong
+  role_name: freebsd_ports
+  author: Vladimir Botka
+  description: FreeBSD. Install and update ports.
+  company: https://botka.link
+  github_branch: master
+  license: BSD
+  min_ansible_version: "2.11"
+  platforms:
+    - name: FreeBSD
+      versions:
+        - 12.1
+  galaxy_tags:
+    - freebsd
+    - ports
+dependencies: []
+collections:
+  - community.general
+...

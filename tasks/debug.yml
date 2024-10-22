@@ -1,0 +1,42 @@
+---
+
+- name: Debug
+  vars:
+    msg: |-
+         ansible_architecture [{{ ansible_architecture }}]
+         ansible_os_family [{{ ansible_os_family }}]
+         ansible_distribution [{{ ansible_distribution }}]
+         ansible_distribution_major_version [{{ ansible_distribution_major_version }}]
+         ansible_distribution_version [{{ ansible_distribution_version }}]
+         ansible_distribution_release [{{ ansible_distribution_release }}]
+
+         freebsd_install_method [{{ freebsd_install_method }}]
+         freebsd_use_packages [{{ freebsd_use_packages }}]
+         freebsd_install_retries [{{ freebsd_install_retries }}]
+         freebsd_install_delay [{{ freebsd_install_delay }}]
+
+         ports_dryrun [{{ ports_dryrun }}]
+
+         ports_portsnap_cron_enable [{{ ports_portsnap_cron_enable }}]
+         ports_portsnap_cron_backup [{{ ports_portsnap_cron_backup }}]
+         ports_portsnap_cron_user [{{ ports_portsnap_cron_user }}]
+         ports_portsnap_cron_mailto [{{ ports_portsnap_cron_mailto }}]
+         ports_portsnap_cron_hour [{{ ports_portsnap_cron_hour }}]
+         ports_portsnap_cron_minute [{{ ports_portsnap_cron_minute }}]
+         ports_portsnap_cron_command [{{ ports_portsnap_cron_command }}]
+
+         pkg_dict
+         {{ pkg_dict|to_nice_yaml }}
+         pkg_list
+         {{ pkg_list|to_yaml }}
+         pkg_list_deinstall
+         {{ pkg_list_deinstall|to_yaml }}
+         pkg_dict_all [{{ pkg_dict_all|d(false) }}]
+         pkg_dict_select
+         {{ pkg_dict_select|to_yaml }}
+
+  ansible.builtin.debug:
+    msg: "{{ '{}'.format(msg) }}"
+
+# EOF
+...

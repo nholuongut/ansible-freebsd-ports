@@ -1,0 +1,31 @@
+---
+# defaults for freebsd_ports
+
+# Install params
+freebsd_install_method: ports
+freebsd_use_packages: true
+freebsd_install_retries: 10
+freebsd_install_delay: 5
+
+ports_debug: false
+ports_dryrun: false
+
+# See nholuong.freebsd_packages
+#
+# pkg_dict_all: false     # d(false) set in tasks/ports.yml
+# pkg_dict_select: []     # d([]) set in tasks/vars.yml
+# pkg_dict: []            # d([]) set in tasks/vars.yml
+# pkg_list: []            # d([]) set in tasks/vars.yml
+# pkg_list_deinstall: []  # d([]) set in tasks/vars.yml
+
+# portsnap cron
+ports_portsnap_cron_enable: false
+ports_portsnap_cron_backup: true
+ports_portsnap_cron_user: root
+ports_portsnap_cron_mailto: root
+ports_portsnap_cron_hour: "*/6"
+ports_portsnap_cron_minute: "15"
+ports_portsnap_cron_command: /usr/sbin/portsnap cron
+
+# EOF
+...
